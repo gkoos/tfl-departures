@@ -1,5 +1,5 @@
 # Departure Times
-(Almost) real-time departure times for public transportation (currently for buses only) in the UK, using [TransportAPI](http://transportapi.com). The app is also deployed on [Heroku](...).
+(Almost) real-time departure times for public transportation (currently for buses only) in the UK, using [TransportAPI](http://transportapi.com). The app is also deployed on [Heroku](https://arcane-hollows-65344.herokuapp.com/).
 
 ## Backend
 The backend is implemented in Node.js using the [koa](https://koajs.com/) framework. Koa has a smaller footprint than Express, therefore ideal for tiny apps like this.
@@ -97,7 +97,8 @@ Status: 200
 ### Websockets
 
 ws:// /?atcocode=...
-The websocket version of the GET /api/departures API call. Under the hood it polls the Transport API in a time period specified in the `.env` file and if there were any changes the new data is sent to the websocket connections subscribing to the given bus station. The data is also sent to every new connection anyway so the frontend gets some initial data.
+The websocket version of the GET /api/departures API call. Under the hood it polls the Transport API in a time period specified in the `.env` file and if there were any changes the new data is sent to the websocket connections subscribing to the given bus station. The data is also sent to every new connection anyway so the frontend gets some initial data.  
+*Note that the free account for the Transport API is 1000 hits per day which can be exhausted with the polling for the socket version quite fast.*
 
 ### TODO
 - Refactor socketserver.js
